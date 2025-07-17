@@ -1,14 +1,14 @@
-# Use a lightweight Java 17 runtime
+# Use lightweight Java 17 runtime
 FROM eclipse-temurin:17-jre
 
-# Set working directory in the container
+# Create app directory inside container
 WORKDIR /app
 
-# Copy the JAR file into the container
-COPY target/*.jar app.jar
+# Copy the uploaded JAR into the image
+COPY dcbb2546-a87c-4656-8a06-17378588e8c9.jar app.jar
 
-# Default command to run the Spring Boot app
-ENTRYPOINT ["java", "-jar", "app.jar"]
-
-# Expose the port that your app runs on
+# Expose port 8080
 EXPOSE 8080
+
+# Run the JAR
+ENTRYPOINT ["java", "-jar", "app.jar"]
