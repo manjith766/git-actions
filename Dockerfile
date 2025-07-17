@@ -1,14 +1,14 @@
-# Use lightweight Java 17 runtime
+# Use a Java 17 runtime
 FROM eclipse-temurin:17-jre
 
-# Create app directory inside container
+# Make a folder in the container
 WORKDIR /app
 
-# Copy the uploaded JAR into the image
-COPY dcbb2546-a87c-4656-8a06-17378588e8c9.jar app.jar
+# Copy the jar file from your project (inside target/)
+COPY target/*.jar app.jar
 
-# Expose port 8080
+# Tell Docker to expose port 8080
 EXPOSE 8080
 
-# Run the JAR
+# Run the app
 ENTRYPOINT ["java", "-jar", "app.jar"]
